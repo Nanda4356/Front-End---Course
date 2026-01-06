@@ -1,0 +1,40 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "landing page for natours",
+  "homepage": "https://github.com/Nanda4356/Front-End---Course#readme",
+  "bugs": {
+    "url": "https://github.com/Nanda4356/Front-End---Course/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nanda4356/Front-End---Course.git"
+  },
+  "license": "ISC",
+  "author": "Nanda",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "braces": "^3.0.3",
+    "chokidar": "^4.0.3",
+    "detect-libc": "^1.0.3",
+    "fill-range": "^7.1.1",
+    "immutable": "^5.1.4",
+    "is-extglob": "^2.1.1",
+    "is-glob": "^4.0.3",
+    "is-number": "^7.0.0",
+    "micromatch": "^4.0.8",
+    "node-addon-api": "^7.1.1",
+    "picomatch": "^2.3.1",
+    "readdirp": "^4.1.2",
+    "save-dev": "^0.0.1-security",
+    "source-map-js": "^1.2.1",
+    "to-regex-range": "^5.0.1"
+  },
+  "devDependencies": {
+    "sass": "^1.97.2"
+  }
+}
