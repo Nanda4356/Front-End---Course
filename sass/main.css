@@ -12,8 +12,6 @@ $breakpoint argument choices
 -tab-land
 -big-desktop
 
-ORDER : Base + typography > general layout + grid > page layout > components
-
 1em = 16px
 */
 @keyframes moveInLeft {
@@ -63,11 +61,6 @@ ORDER : Base + typography > general layout + grid > page layout > components
 html {
   font-size: 62.5%;
 }
-@media (max-width: 112.5em) {
-  html {
-    font-size: 75%;
-  }
-}
 @media (max-width: 75em) {
   html {
     font-size: 56.25%;
@@ -78,15 +71,19 @@ html {
     font-size: 50%;
   }
 }
+@media (max-width: 37.5em) {
+  html {
+    font-size: 30%;
+  }
+}
+@media (max-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
 
 body {
   box-sizing: border-box;
-  padding: 3rem;
-}
-@media (max-width: 56.25em) {
-  body {
-    padding: 0;
-  }
 }
 
 body {
@@ -112,14 +109,6 @@ body {
   animation-name: moveInLeft;
   animation-duration: 1s;
   animation-timing-function: ease-out;
-}
-@media (max-width: 37.5em) {
-  .heading-primary--main {
-    letter-spacing: 1rem;
-    font-size: 5rem;
-  }
-}
-.heading-primary--main {
   /* 
     animation-iteration-count: 3;
     animation-delay: 3s; \
@@ -132,11 +121,6 @@ body {
   letter-spacing: 1.75rem;
   animation-name: moveInRight;
   animation-duration: 1s;
-}
-@media (max-width: 37.5em) {
-  .heading-primary--sub {
-    letter-spacing: 0.5rem;
-  }
 }
 
 .heading-secondary {
@@ -154,16 +138,6 @@ body {
   transform: skewY(2deg) SkewX(15deg) scale(1.1);
   text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
 }
-@media (max-width: 56.25em) {
-  .heading-secondary {
-    font-size: 2.5rem;
-  }
-}
-@media (max-width: 37.5em) {
-  .heading-secondary {
-    font-size: 2.5rem;
-  }
-}
 
 .heading-tertiary {
   font-size: 1.6rem;
@@ -173,9 +147,6 @@ body {
 
 .paragraph {
   font-size: 1.6rem;
-  max-width: 100%;
-  overflow-wrap: break-word;
-  word-break: break-word;
 }
 .paragraph:not(:last-child) {
   margin-bottom: 3rem;
@@ -186,31 +157,31 @@ body {
 }
 
 .u-margin-bottom-small {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem !important;
 }
 
 .u-margin-bottom-medium {
-  margin-bottom: 4rem;
+  margin-bottom: 4rem !important;
 }
 
 .u-margin-bottom-big {
-  margin-bottom: 8rem;
+  margin-bottom: 8rem !important;
 }
 
 .u-margin-top-small {
-  margin-top: 2rem;
+  margin-top: 2rem !important;
 }
 
 .u-margin-top-medium {
-  margin-top: 6rem;
+  margin-top: 6rem !important;
 }
 
 .u-margin-top-big {
-  margin-top: 8rem;
+  margin-top: 8rem !important;
 }
 
 .u-margin-top-big-huge {
-  margin-top: 10rem;
+  margin-top: 10rem !important;
 }
 
 .btn, .btn:link, .btn:visited {
@@ -386,7 +357,6 @@ body {
   background-size: cover;
   height: 23rem;
   background-blend-mode: screen;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
@@ -481,9 +451,7 @@ body {
   width: 15rem;
   height: 15rem;
   float: left;
-  -webkit-shape-outside: circle(50% at 50% 50%);
   shape-outside: circle(50% at 50% 50%);
-  -webkit-clip-path: circle(50% at 50% 50%);
   clip-path: circle(50% at 50% 50%);
   transform: translateX(-3rem) skewX(12deg);
   position: relative;
@@ -531,7 +499,8 @@ body {
 .bg-video__content {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .form__group:not(:last-child) {
@@ -568,6 +537,11 @@ body {
   margin-top: 0.7rem;
   display: block;
   transition: all 0.3s;
+}
+.form__input:-moz-placeholder + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem);
 }
 .form__input:placeholder-shown + .form__label {
   opacity: 0;
@@ -666,8 +640,6 @@ body {
   column-count: 2;
   column-gap: 4rem;
   column-rule: 1px solid #eee;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
 }
@@ -700,7 +672,6 @@ body {
   background-size: cover;
   background-position: top;
   position: relative;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 .header__logo-box {
@@ -963,6 +934,4 @@ body {
 .book__form {
   width: 50%;
   padding: 6rem;
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=main.css.map */

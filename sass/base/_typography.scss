@@ -1,4 +1,5 @@
 @use "../abstracts/variables";
+@use "../abstracts/mixins";
 
 body {
   font-family: "Lato", sans-serif;
@@ -26,6 +27,11 @@ body {
     animation-duration: 1s;
     animation-timing-function: ease-out;
 
+    @include mixins.respond(phone) {
+      letter-spacing: 1rem;
+      font-size: 5rem;
+    }
+
     /* 
       animation-iteration-count: 3;
       animation-delay: 3s; \
@@ -40,37 +46,55 @@ body {
 
     animation-name: moveInRight;
     animation-duration: 1s;
+
+    @include mixins.respond(phone) {
+      letter-spacing: .5rem;
+    }
   }
 }
 
-.heading-secondary{
+.heading-secondary {
   font-size: 3.5rem;
   text-transform: uppercase;
   font-weight: 700;
   display: inline-block;
-  background-image: linear-gradient(to right, variables.$color-primary-light, variables.$color-primary-dark);
+
+  background-image: linear-gradient(
+    to right,
+    variables.$color-primary-light,
+    variables.$color-primary-dark
+  );
   -webkit-background-clip: text;
   color: transparent;
-  letter-spacing: .2rem;
-  transition: all .2s;
-  
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
 
-  &:hover{
+  &:hover {
     transform: skewY(2deg) SkewX(15deg) scale(1.1);
-    text-shadow: .5rem 1rem 2rem rgba(variables.$color-black, .2);
+    text-shadow: 0.5rem 1rem 2rem rgba(variables.$color-black, 0.2);
+  }
+
+  @include mixins.respond(tab-port){
+    font-size: 2.5rem;
+  }
+  @include mixins.respond(phone){
+    font-size: 2.5rem;
   }
 }
 
-.heading-tertiary{
+.heading-tertiary {
   font-size: 1.6rem;
   font-weight: 700;
   text-transform: uppercase;
 }
 
-.paragraph{
+.paragraph {
   font-size: 1.6rem;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 
-  &:not(:last-child){
+  &:not(:last-child) {
     margin-bottom: 3rem;
   }
 }
