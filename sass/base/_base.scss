@@ -1,4 +1,5 @@
 @use "../abstracts/mixins";
+@use "../abstracts/variables";
 
 *,
 *::before,
@@ -13,22 +14,28 @@ html {
 
   @include mixins.respond(big-desktop){
     font-size: 75%;
-  }// 1 rem = 12, 12/16
+  }
+
   @include mixins.respond(tab-land){
-    font-size: 56.25%; // wisth <900?
-  }// 1 rem = 9px, 9/16 = 50%
+    font-size: 56.25%;
+  }
 
   @include mixins.respond(tab-port){
-    font-size: 50%; // width < 600?
-  }// 1 rem = 8px, 8/16 = 50%
+    font-size: 50%;
+  }
+
 }
 
 body {
   box-sizing: border-box;
   padding: 3rem;
 
- @include mixins.respond(tab-port){
+  @include mixins.respond(tab-port){
     padding: 0;
   }
+}
 
+::selection{
+  background-color: variables.$color-primary;
+  color: variables.$color-white;
 }

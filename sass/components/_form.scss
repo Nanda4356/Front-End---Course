@@ -1,4 +1,5 @@
 @use "../abstracts/variables";
+@use "../abstracts/mixins";
 
 .form {
   &__group:not(:last-child) {
@@ -16,7 +17,11 @@
     border-bottom: 3px solid transparent;
     width: 90%;
     display: block;
-    transition: all .5s;
+    transition: all 0.5s;
+
+    @include mixins.respond(tab-port) {
+     width: 100%;
+    }
 
     &:focus {
       outline: none;
@@ -24,8 +29,8 @@
       border-bottom: 3px solid variables.$color-primary;
     }
 
-    &:focus:invalid{
-        border-bottom: 3px solid variables.$color-secondary-dark;
+    &:focus:invalid {
+      border-bottom: 3px solid variables.$color-secondary-dark;
     }
 
     &::-webkit-input-placeholder {
@@ -37,34 +42,39 @@
     font-size: 1.2rem;
     font-weight: 700;
     margin-left: 2rem;
-    margin-top: .7rem;
+    margin-top: 0.7rem;
     display: block;
-    transition: all .3s;
+    transition: all 0.3s;
   }
 
-  &__input:placeholder-shown + &__label{
+  &__input:placeholder-shown + &__label {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-4rem);
   }
 
-  &__radio-group{
+  &__radio-group {
     width: 49%;
     display: inline-block;
+
+    @include mixins.respond(tab-port) {
+     width: 100%;
+     margin-bottom: 2rem;
+    }
   }
 
-  &__radio-input{
+  &__radio-input {
     display: none;
   }
 
-  &__radio-label{
+  &__radio-label {
     font-size: variables.$default-font-size;
     cursor: pointer;
     position: relative;
     padding-left: 5rem;
   }
 
-  &__radio-button{
+  &__radio-button {
     height: 3rem;
     width: 3rem;
     border: 5px solid variables.$color-primary;
@@ -72,25 +82,25 @@
     display: inline-block;
     position: absolute;
     left: 0;
-    top: -.4rem;
+    top: -0.4rem;
 
-    &::after{
-        content: "";
-        display: block;
-        height: 1.3rem;
-        width: 1.3rem;
-        border-radius: 50%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: variables.$color-primary;
-        opacity: 0;
-        transition: opacity .2s;
+    &::after {
+      content: "";
+      display: block;
+      height: 1.3rem;
+      width: 1.3rem;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: variables.$color-primary;
+      opacity: 0;
+      transition: opacity 0.2s;
     }
   }
 
-  &__radio-input:checked ~ &__radio-label &__radio-button:after{
+  &__radio-input:checked ~ &__radio-label &__radio-button:after {
     opacity: 1;
   }
 }
